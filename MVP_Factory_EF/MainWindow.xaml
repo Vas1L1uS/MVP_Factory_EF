@@ -1,0 +1,56 @@
+﻿<Window x:Class="MVP_Factory_EF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVP_Factory_EF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" MinHeight="350" MinWidth="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" MinWidth="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <ListView x:Name="lvAnimals" Grid.ColumnSpan="2" SelectionChanged="lvAnimals_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock>
+                            <TextBlock Text="{Binding Type}"/>
+                            <TextBlock Text="{Binding Kind}"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="59*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="Загрузить">
+                        <MenuItem Name="loadSQL" Header="SQL"/>
+                        <MenuItem Name="loadXML" Header="XML"/>
+                        <MenuItem Name="loadJSON" Header="JSON"/>
+                    </MenuItem>
+                    <MenuItem Header="Сохранить">
+                        <MenuItem Name="saveSQL" Header="SQL"/>
+                        <MenuItem Name="saveXML" Header="XML"/>
+                        <MenuItem Name="saveJSON" Header="JSON"/>
+                    </MenuItem>
+                </Menu>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0,7,0,0" MinWidth="400">
+                <TextBlock HorizontalAlignment="Left" Margin="0,101,0,0" TextWrapping="Wrap" Text="Тип животного" VerticalAlignment="Top" Width="97" TextAlignment="Right" Height="16"/>
+                <TextBox Name="textBoxAnimalType" Margin="104,100,10,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Height="18"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,124,0,0" TextWrapping="Wrap" Text="Вид животного" VerticalAlignment="Top" Width="89" TextAlignment="Right" Height="16"/>
+                <TextBox Name="textBoxAnimalKind" Margin="104,123,10,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Height="18"/>
+                <Button Name="buttonAdd" Content="Добавить" HorizontalAlignment="Left" Margin="0,174,0,0" VerticalAlignment="Top" Height="48" Width="126"/>
+                <Button Name="buttonEdit" Content="Изменить" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Height="48" Width="126"/>
+                <Button x:Name="buttonDelete" Content="Удалить" HorizontalAlignment="Right" Margin="268,174,0,0" VerticalAlignment="Top" Height="48" Width="126"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

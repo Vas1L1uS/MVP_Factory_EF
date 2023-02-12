@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Животные>
+  <Animal type="Млекопитающее" kind="Слон" />
+  <Animal type="Земноводное" kind="Крокодил" />
+  <Animal type="Земноводное" kind="Ящерица" />
+</Животные>
